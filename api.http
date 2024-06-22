@@ -1,0 +1,30 @@
+GET http://localhost:8080/events
+
+###
+# @name createEvent
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "name": "New Event",
+  "date": "2027-01-01T00:00:00Z",
+  "description": "This is a new event",
+  "price": 100
+}
+
+###
+@eventId = {{createEvent.response.body.id}}
+
+###
+PATCH  http://localhost:8080/events/{{eventId}}
+Content-Type: application/json
+
+{
+  "name": "New Event",
+  "date": "2027-01-01T00:00:00Z",
+  "description": "This is a new event",
+  "price": 100
+}
+
+###
+DELETE   http://localhost:8080/events/{{eventId}}
