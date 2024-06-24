@@ -6,9 +6,9 @@ POST http://localhost:8080/events
 Content-Type: application/json
 
 {
-  "name": "New Event",
-  "date": "2027-01-01T00:00:00Z",
-  "description": "This is a new event",
+	"name": "New Event",
+  "description": "Description Event",
+  "date": "2024-06-24T00:00:00Z",
   "price": 100
 }
 
@@ -28,3 +28,14 @@ Content-Type: application/json
 
 ###
 DELETE   http://localhost:8080/events/{{eventId}}
+
+###
+GET  http://localhost:8080/events/{{eventId}}/spots
+
+###
+POST  http://localhost:8080/events/{{eventId}}/spots
+Content-Type: application/json
+
+{
+  "name": "A3"
+}
