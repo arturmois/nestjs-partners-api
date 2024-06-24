@@ -1,6 +1,4 @@
-import { Prisma } from '@prisma/client';
-
-export class CreateEventDto implements Prisma.EventCreateInput {
+export class CreateEventDto {
   name: string;
   description: string;
   price: number;
