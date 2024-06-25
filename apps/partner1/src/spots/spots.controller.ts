@@ -1,3 +1,4 @@
+import { SpotsService } from '@app/core/spots/spots.service';
 import {
   Body,
   Controller,
@@ -7,9 +8,8 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { CreateSpotDto } from './dto/create-spot.dto';
-import { UpdateSpotDto } from './dto/update-spot.dto';
-import { SpotsService } from './spots.service';
+import { CreateSpotRequest } from './request/create-spot.request';
+import { UpdateSpotRequest } from './request/update-spot.request';
 
 @Controller('events/:event_id/spots')
 export class SpotsController {
@@ -18,7 +18,7 @@ export class SpotsController {
   @Post()
   create(
     @Param('event_id') event_id: string,
-    @Body() createSpotDto: CreateSpotDto,
+    @Body() createSpotDto: CreateSpotRequest,
   ) {
     return this.spotsService.create(event_id, createSpotDto);
   }
@@ -40,7 +40,7 @@ export class SpotsController {
   update(
     @Param('event_id') event_id: string,
     @Param('spot_id') spot_id: string,
-    @Body() updateSpotDto: UpdateSpotDto,
+    @Body() updateSpotDto: UpdateSpotRequest,
   ) {
     return this.spotsService.update(event_id, spot_id, updateSpotDto);
   }
